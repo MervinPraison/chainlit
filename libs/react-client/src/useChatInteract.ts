@@ -1,13 +1,13 @@
 import { useCallback, useContext } from 'react';
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 import {
-  accessTokenState,
   actionState,
   askUserState,
   chatSettingsInputsState,
   chatSettingsValueState,
   currentThreadIdState,
   elementState,
+  favoriteMessagesState,
   firstUserInteraction,
   loadingState,
   messagesState,
@@ -18,7 +18,7 @@ import {
   threadIdToResumeState,
   tokenCountState
 } from 'src/state';
-import { IAction, IFileRef, IStep } from 'src/types';
+import { IFileRef, IStep } from 'src/types';
 import { addMessage } from 'src/utils/message';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -28,7 +28,6 @@ type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 const useChatInteract = () => {
   const client = useContext(ChainlitContext);
-  const accessToken = useRecoilValue(accessTokenState);
   const session = useRecoilValue(sessionState);
   const askUser = useRecoilValue(askUserState);
   const sessionId = useRecoilValue(sessionIdState);
@@ -47,6 +46,7 @@ const useChatInteract = () => {
   const setIdToResume = useSetRecoilState(threadIdToResumeState);
   const setSideView = useSetRecoilState(sideViewState);
   const setCurrentThreadId = useSetRecoilState(currentThreadIdState);
+  const setFavoriteMessages = useSetRecoilState(favoriteMessagesState);
 
   const clear = useCallback(() => {
     session?.socket.emit('clear_session');
@@ -90,6 +90,49 @@ const useChatInteract = () => {
     [session?.socket]
   );
 
+  const toggleMessageFavorite = useCallback(
+    (message: IStep) => {
+      const favorite = !(message.metadata?.favorite ?? false);
+      const updatedMetadata = {
+        ...(message.metadata || {}),
+        favorite
+      };
+
+      setMessages((oldMessages) =>
+        oldMessages.map((item) =>
+          item.id === message.id
+            ? { ...item, metadata: { ...(item.metadata || {}), favorite } }
+            : item
+        )
+      );
+
+      const nextMessage: IStep = {
+        ...message,
+        metadata: updatedMetadata
+      };
+
+      setFavoriteMessages((oldFavorites) => {
+        if (favorite) {
+          const filtered = oldFavorites.filter(
+            (step) => step.id !== message.id
+          );
+          return [nextMessage, ...filtered];
+        }
+        return oldFavorites.filter((step) => step.id !== message.id);
+      });
+
+      session?.socket.emit('message_favorite', { message: nextMessage });
+    },
+    [session?.socket, setFavoriteMessages, setMessages]
+  );
+
+  const windowMessage = useCallback(
+    (data: any) => {
+      session?.socket.emit('window_message', data);
+    },
+    [session?.socket]
+  );
+
   const startAudioStream = useCallback(() => {
     session?.socket.emit('audio_start');
   }, [session?.socket]);
@@ -118,6 +161,7 @@ const useChatInteract = () => {
   const replyMessage = useCallback(
     (message: IStep) => {
       if (askUser) {
+        if (askUser.parentId) message.parentId = askUser.parentId;
         setMessages((oldMessages) => addMessage(oldMessages, message));
         askUser.callback(message);
       }
@@ -128,6 +172,13 @@ const useChatInteract = () => {
   const updateChatSettings = useCallback(
     (values: object) => {
       session?.socket.emit('chat_settings_change', values);
+    },
+    [session?.socket]
+  );
+
+  const editChatSettings = useCallback(
+    (values: object) => {
+      session?.socket.emit('chat_settings_edit', values);
     },
     [session?.socket]
   );
@@ -145,52 +196,28 @@ const useChatInteract = () => {
     session?.socket.emit('stop');
   }, [session?.socket]);
 
-  const callAction = useCallback(
-    (action: IAction) => {
-      const socket = session?.socket;
-      if (!socket) return;
-
-      const promise = new Promise<{
-        id: string;
-        status: boolean;
-        response?: string;
-      }>((resolve, reject) => {
-        socket.once('action_response', (response) => {
-          if (response.status) {
-            resolve(response);
-          } else {
-            reject(response);
-          }
-        });
-      });
-
-      socket.emit('action_call', action);
-
-      return promise;
-    },
-    [session?.socket]
-  );
-
   const uploadFile = useCallback(
-    (file: File, onProgress: (progress: number) => void) => {
-      return client.uploadFile(file, onProgress, sessionId, accessToken);
+    (file: File, onProgress: (progress: number) => void, parentId?: string) => {
+      return client.uploadFile(file, onProgress, sessionId, parentId);
     },
-    [sessionId, accessToken]
+    [sessionId]
   );
 
   return {
     uploadFile,
-    callAction,
     clear,
     replyMessage,
     sendMessage,
     editMessage,
+    windowMessage,
     startAudioStream,
     sendAudioChunk,
     endAudioStream,
     stopTask,
     setIdToResume,
-    updateChatSettings
+    updateChatSettings,
+    editChatSettings,
+    toggleMessageFavorite
   };
 };
 

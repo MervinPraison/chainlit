@@ -1,10 +1,6 @@
-import { runTestServer, submitMessage } from '../../support/testUtils';
+import { submitMessage } from '../../support/testUtils';
 
 describe('Upload attachments', () => {
-  beforeEach(() => {
-    runTestServer();
-  });
-
   const shouldHaveInlineAttachments = () => {
     submitMessage('Message with attachments');
     cy.get('.step').should('have.length', 5);
@@ -30,8 +26,8 @@ describe('Upload attachments', () => {
     cy.fixture('hello.cpp', 'utf-8').as('cppFile');
     cy.fixture('hello.py', 'utf-8').as('pyFile');
 
-    // Wait for the socket connection to be created
-    cy.wait(1000);
+    // Upload UI is ready once the drop target is interactive
+    cy.get("[id='#upload-drop-input']").should('exist');
 
     /**
      * Should be able to upload file from D&D input

@@ -3,27 +3,40 @@ name: CI
 on:
   workflow_call:
   workflow_dispatch:
+  merge_group:
   pull_request:
-    branches: [main, dev]
+    branches: [main, dev, 'release/**']
   push:
-    branches: [main, dev]
+    branches: [main, dev, 'release/**']
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
 
 permissions: read-all
 
 jobs:
-  pytest:
-    uses: ./.github/workflows/pytest.yaml
+  check-backend:
+    uses: ./.github/workflows/check-backend.yaml
     secrets: inherit
-  mypy:
-    uses: ./.github/workflows/mypy.yaml
+  check-frontend:
+    uses: ./.github/workflows/check-frontend.yaml
+    secrets: inherit
+  tests:
+    uses: ./.github/workflows/tests.yaml
     secrets: inherit
   e2e-tests:
     uses: ./.github/workflows/e2e-tests.yaml
     secrets: inherit
   ci:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     name: Run CI
-    needs: [mypy, pytest, e2e-tests]
+    if: always() # This ensures the job always runs
+    needs: [check-backend, check-frontend, tests, e2e-tests]
     steps:
-      - name: Done
-        run: echo "Done"
+      # Propagate failure
+      - name: Check dependent jobs
+        if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'action_required') || contains(needs.*.result, 'timed_out')
+        run: |
+          echo "Not all required jobs succeeded"
+          exit 1

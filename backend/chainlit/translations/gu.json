@@ -1,231 +1,260 @@
 {
-  "components": {
-    "atoms": {
-      "buttons": {
-        "userButton": {
-          "menu": {
-            "settings": "સુયોજનો",
-            "settingsKey": "S",
-            "APIKeys": "API કીઓ",
-            "logout": "બહાર નીકળો"
-          }
+  "common": {
+    "actions": {
+      "cancel": "રદ કરો",
+      "confirm": "પુષ્ટિ કરો",
+      "continue": "ચાલુ રાખો",
+      "goBack": "પાછા જાઓ",
+      "reset": "રીસેટ કરો",
+      "submit": "સબમિટ કરો"
+    },
+    "status": {
+      "loading": "લોડ થઈ રહ્યું છે...",
+      "error": {
+        "default": "એક ભૂલ થઈ",
+        "serverConnection": "સર્વર સુધી પહોંચી શકાયું નથી"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "એપ્લિકેશન ઍક્સેસ કરવા માટે લૉગિન કરો",
+      "form": {
+        "email": {
+          "label": "ઈમેલ એડ્રેસ",
+          "required": "ઈમેલ આવશ્યક છે",
+          "placeholder": "me@example.com"
+        },
+        "password": {
+          "label": "પાસવર્ડ",
+          "required": "પાસવર્ડ આવશ્યક છે"
+        },
+        "actions": {
+          "signin": "સાઇન ઇન કરો"
+        },
+        "alternativeText": {
+          "or": "અથવા"
+        }
+      },
+      "errors": {
+        "default": "સાઇન ઇન કરી શકાયું નથી",
+        "signin": "અલગ એકાઉન્ટથી સાઇન ઇન કરવાનો પ્રયાસ કરો",
+        "oauthSignin": "સાઇન ઇન નિષ્ફળ ગઈ. કૃપા કરીને ફરી પ્રયાસ કરો, અથવા અલગ સાઇન ઇન પદ્ધતિનો ઉપયોગ કરો.",
+        "redirectUriMismatch": "રીડાયરેક્ટ URI oauth ઍપ કન્ફિગરેશન સાથે મેળ ખાતો નથી",
+        "oauthCallback": "અલગ એકાઉન્ટથી સાઇન ઇન કરવાનો પ્રયાસ કરો",
+        "oauthCreateAccount": "અલગ એકાઉન્ટથી સાઇન ઇન કરવાનો પ્રયાસ કરો",
+        "emailCreateAccount": "અલગ એકાઉન્ટથી સાઇન ઇન કરવાનો પ્રયાસ કરો",
+        "callback": "અલગ એકાઉન્ટથી સાઇન ઇન કરવાનો પ્રયાસ કરો",
+        "oauthAccountNotLinked": "તમારી ઓળખની પુષ્ટિ કરવા માટે, મૂળ રૂપે વાપરેલા એકાઉન્ટથી સાઇન ઇન કરો",
+        "emailSignin": "ઈમેલ મોકલી શકાયો નથી",
+        "emailVerify": "કૃપા કરી તમારો ઈમેલ ચકાસો, નવો ઈમેલ મોકલવામાં આવ્યો છે",
+        "credentialsSignin": "સાઇન ઇન નિષ્ફળ. આપેલી વિગતો સાચી છે કે નહીં તે ચકાસો",
+        "sessionRequired": "આ પેજને ઍક્સેસ કરવા માટે કૃપા કરી સાઇન ઇન કરો"
+      }
+    },
+    "provider": {
+      "continue": "{{provider}} સાથે ચાલુ રાખો"
+    }
+  },
+  "chat": {
+    "input": {
+      "placeholder": "અહીં તમારો સંદેશ લખો...",
+      "actions": {
+        "send": "સંદેશ મોકલો",
+        "stop": "કાર્ય રોકો",
+        "attachFiles": "ફાઇલ્સ જોડો"
+      }
+    },
+    "speech": {
+      "start": "રેકોર્ડિંગ શરૂ કરો",
+      "stop": "રેકોર્ડિંગ બંધ કરો",
+      "connecting": "કનેક્ટ થઈ રહ્યું છે"
+    },
+    "favorites": {
+      "use": "મનપસંદ સંદેશનો ઉપયોગ કરો",
+      "headline": "મનપસંદ સંદેશાઓ",
+      "remove": "મનપસંદ સંદેશ દૂર કરો",
+      "empty": {
+        "title": "હજી સુધી કોઈ પ્રોમ્પ્ટ સાચવેલ નથી",
+        "description": "એક પ્રોમ્પ્ટ મોકલીને અને તેને સ્ટાર કરીને શરૂઆત કરો અથવા અગાઉની ચેટમાંથી કોઈ પ્રોમ્પ્ટને સ્ટાર કરો"
+      }
+    },
+    "commands": {
+      "button": "ટૂલ્સ",
+      "changeTool": "ટૂલ બદલો",
+      "availableTools": "ઉપલબ્ધ ટૂલ્સ"
+    },
+    "fileUpload": {
+      "dragDrop": "અહીં ફાઇલ્સ ખેંચો અને છોડો",
+      "browse": "ફાઇલ્સ બ્રાઉઝ કરો",
+      "sizeLimit": "મર્યાદા:",
+      "errors": {
+        "failed": "અપલોડ કરવામાં નિષ્ફળ",
+        "cancelled": "અપલોડ રદ કર્યું"
+      },
+      "actions": {
+        "cancelUpload": "અપલોડ રદ કરો",
+        "removeAttachment": "જોડાણ દૂર કરો"
+      }
+    },
+    "messages": {
+      "status": {
+        "using": "વાપરી રહ્યા છે",
+        "used": "વપરાયેલ"
+      },
+      "actions": {
+        "copy": {
+          "button": "ક્લિપબોર્ડ પર કૉપિ કરો",
+          "success": "કૉપિ થયું!"
+        }
+      },
+      "feedback": {
+        "positive": "ઉપયોગી",
+        "negative": "બિનઉપયોગી",
+        "edit": "પ્રતિસાદ સંપાદિત કરો",
+        "dialog": {
+          "title": "ટિપ્પણી ઉમેરો",
+          "submit": "પ્રતિસાદ સબમિટ કરો",
+          "yourFeedback": "તમારો પ્રતિસાદ..."
+        },
+        "status": {
+          "updating": "અપડેટ થઈ રહ્યું છે",
+          "updated": "પ્રતિસાદ અપડેટ થયો"
         }
       }
     },
-    "molecules": {
-      "newChatButton": {
-        "newChat": "નવો સંવાદ"
+    "history": {
+      "title": "છેલ્લા ઇનપુટ્સ",
+      "empty": "ખાલી છે...",
+      "show": "ઇતિહાસ બતાવો"
+    },
+    "settings": {
+      "title": "સેટિંગ્સ પેનલ",
+      "customize": "તમારા ચેટ સેટિંગ્સ અહીં કસ્ટમાઇઝ કરો"
+    },
+    "watermark": "LLM ભૂલો કરી શકે છે. મહત્વપૂર્ણ માહિતી તપાસવાનું વિચારો."
+  },
+  "threadHistory": {
+    "sidebar": {
+      "title": "પાછલી ચેટ્સ",
+      "filters": {
+        "search": "શોધો",
+        "placeholder": "Search conversations..."
       },
-      "tasklist": {
-        "TaskList": {
-          "title": "🗒️ કાર્ય યાદી",
-          "loading": "લોડ કરી રહ્યા છે...",
-          "error": "ભૂલ ઉદ્ભવી"
-        }
+      "timeframes": {
+        "today": "આજે",
+        "yesterday": "ગઈકાલે",
+        "previous7days": "પાછલા 7 દિવસ",
+        "previous30days": "પાછલા 30 દિવસ"
       },
-      "attachments": {
-        "cancelUpload": "અપલોડ કરવાનું રદ કરો",
-        "removeAttachment": "જોડાણને દૂર કરો"
+      "empty": "કોઈ થ્રેડ્સ મળ્યા નથી",
+      "actions": {
+        "close": "સાઇડબાર બંધ કરો",
+        "open": "સાઇડબાર ખોલો"
+      }
+    },
+    "thread": {
+      "untitled": "શીર્ષક વગરની વાતચીત",
+      "menu": {
+        "rename": "નામ બદલો",
+        "share": "શેર કરો",
+        "delete": "Delete"
       },
-      "newChatDialog": {
-        "createNewChat": "શું નવું સંવાદ બનાવવું છે?",
-        "clearChat": "આ વર્તમાન સંદેશાઓને સાફ કરશે અને નવી વાતચીત શરૂ કરશે.",
-        "cancel": "રદ્દ",
-        "confirm": "ખાતરી કરો"
-      },
-      "settingsModal": {
-        "settings": "સુયોજનો",
-        "expandMessages": "સંદેશાઓ વિસ્તૃત કરો",
-        "hideChainOfThought": "વિચારની સાંકળ છુપાવો",
-        "darkMode": "ઘાટી સ્થિતિ"
-      },
-      "detailsButton": {
-        "using": "વાપરી રહ્યા છીએ",
-        "running": "ચાલી રહ્યુ છે",
-        "took_one": "{{count}} પગલું ભર્યું",
-        "took_other": "{{count}} પગલાંઓ લીધા"
-      },
-      "auth": {
-        "authLogin": {
-          "title": "એપ્લિકેશનને ઍક્સેસ કરવા માટે લોગિન કરો.",
-          "form": {
-            "email": "ઈ-મેઈલ સરનામું",
-            "password": "પાસવર્ડ",
-            "noAccount": "ખાતું નથી?",
-            "alreadyHaveAccount": "પહેલેથી જ ખાતું છે?",
-            "signup": "સાઇન અપ કરો",
-            "signin": "સાઇન ઇન કરો",
-            "or": "અથવા",
-            "continue": "ચાલુ રાખો",
-            "forgotPassword": "પાસવર્ડ ભૂલી ગયા?",
-            "passwordMustContain": "તમારો પાસવર્ડ સમાવતો જ હોવો જોઇએ:",
-            "emailRequired": "ઈ-મેઈલ એ જરૂરી ક્ષેત્ર છે",
-            "passwordRequired": "પાસવર્ડ એ જરૂરી ક્ષેત્ર છે"
+      "actions": {
+        "share": {
+          "title": "ચેટની લિંક શેર કરો",
+          "button": "શેર કરો",
+          "status": {
+            "copied": "લિંક કૉપિ થઈ",
+            "created": "શેર લિંક બનાવાઈ!",
+            "unshared": "આ થ્રેડ માટે શેરિંગ નિષ્ક્રિય છે"
           },
           "error": {
-            "default": "પ્રવેશ કરવામાં અસમર્થ.",
-            "signin": "અલગ ખાતા સાથે સાઇન ઇન કરવાનો પ્રયત્ન કરો.",
-            "oauthsignin": "અલગ ખાતા સાથે સાઇન ઇન કરવાનો પ્રયત્ન કરો.",
-            "redirect_uri_mismatch": "રીડાયરેક્ટ URI એ oauth એપ્લિકેશન રૂપરેખાંકન સાથે બંધબેસતી નથી.",
-            "oauthcallbackerror": "અલગ ખાતા સાથે સાઇન ઇન કરવાનો પ્રયત્ન કરો.",
-            "oauthcreateaccount": "અલગ ખાતા સાથે સાઇન ઇન કરવાનો પ્રયત્ન કરો.",
-            "emailcreateaccount": "અલગ ખાતા સાથે સાઇન ઇન કરવાનો પ્રયત્ન કરો.",
-            "callback": "અલગ ખાતા સાથે સાઇન ઇન કરવાનો પ્રયત્ન કરો.",
-            "oauthaccountnotlinked": "તમારી ઓળખની પુષ્ટિ કરવા માટે, તમે જે મૂળભૂત રીતે ઉપયોગ કર્યો હતો તે જ એકાઉન્ટ સાથે સાઇન ઇન કરો.",
-            "emailsignin": "ઈ-મેઈલ મોકલી શકાયો નહિ.",
-            "emailverify": "કૃપા કરીને તમારા ઇમેઇલની ખાત્રી કરો, એક નવું ઇમેઇલ મોકલવામાં આવ્યું છે.",
-            "credentialssignin": "સાઇન ઇન નિષ્ફળ. તમે પૂરી પાડેલી વિગતો સાચી છે તે ચકાસો.",
-            "sessionrequired": "કૃપા કરીને આ પૃષ્ઠને ઍક્સેસ કરવા માટે સાઇન ઇન કરો."
+            "create": "શેર લિંક બનાવવામાં નિષ્ફળ",
+            "unshare": "થ્રેડ અનશેર કરવામાં નિષ્ફળ"
           }
         },
-        "authVerifyEmail": {
-          "almostThere": "તમે તો લગભગ ત્યાં જ છો! અમે આના પર ઇમેઇલ મોકલ્યો છે ",
-          "verifyEmailLink": "તમારું સાઇનઅપ પૂર્ણ કરવા માટે કૃપા કરીને તે ઇમેઇલની લિંક પર ક્લિક કરો.",
-          "didNotReceive": "ઈ-મેઈલ શોધી શકતા નથી?",
-          "resendEmail": "ઇમેઇલ ફરી મોકલો",
-          "goBack": "પાછા જાઓ",
-          "emailSent": "ઈ-મેઈલ સફળતાપૂર્વક મોકલાઈ ગયો.",
-          "verifyEmail": "તમારા ઇમેઇલ એડ્રેસની ખાત્રી કરો"
+        "delete": {
+          "title": "કાઢી નાખવાની પુષ્ટિ કરો",
+          "description": "આ થ્રેડ અને તેના સંદેશાઓ અને તત્વોને કાઢી નાખશે. આ ક્રિયા પાછી ફેરવી શકાશે નહીં",
+          "success": "ચેટ કાઢી નાખી",
+          "inProgress": "ચેટ કાઢી નાખી રહ્યા છીએ"
         },
-        "providerButton": {
-          "continue": "{{provider}} સાથે ચાલુ રાખો",
-          "signup": "{{provider}} સાથે સાઇન અપ કરો"
-        },
-        "authResetPassword": {
-          "newPasswordRequired": "નવો પાસવર્ડ એ જરૂરી ક્ષેત્ર છે",
-          "passwordsMustMatch": "પાસવર્ડો બંધબેસતા જ હોવા જોઈએ",
-          "confirmPasswordRequired": "ખાતરી કરો પાસવર્ડ એ જરૂરી ક્ષેત્ર છે",
-          "newPassword": "નવો પાસવર્ડ",
-          "confirmPassword": "ખાતરી પાસવર્ડ",
-          "resetPassword": "પાસવર્ડને પુન:સુયોજિત કરો"
-        },
-        "authForgotPassword": {
-          "email": "ઈ-મેઈલ સરનામું",
-          "emailRequired": "ઈ-મેઈલ એ જરૂરી ક્ષેત્ર છે",
-          "emailSent": "સૂચનાઓ માટે કૃપા કરીને તમારું પાસવર્ડ રિસૅટ કરવા માટે ઇમેઇલ એડ્રેસ {{email}} ચકાસો.",
-          "enterEmail": "તમારું ઇમેઇલ એડ્રેસ દાખલ કરો અને અમે તમારો પાસવર્ડ રીસેટ કરવા માટે તમને સૂચનાઓ મોકલીશું.",
-          "resendEmail": "ઇમેઇલ ફરી મોકલો",
-          "continue": "ચાલુ રાખો",
-          "goBack": "પાછા જાઓ"
-        }
-      }
-    },
-    "organisms": {
-      "chat": {
-        "history": {
-          "index": {
-            "showHistory": "ઇતિહાસ બતાવો",
-            "lastInputs": "છેલ્લા ઇનપુટ્સ",
-            "noInputs": "આવા ખાલી...",
-            "loading": "લોડ કરી રહ્યા છે..."
-          }
-        },
-        "inputBox": {
-          "input": {
-            "placeholder": "તમારો સંદેશો અહીં ટાઇપ કરો..."
-          },
-          "speechButton": {
-            "start": "રેકોર્ડ કરવાનું શરૂ કરો",
-            "stop": "રેકોર્ડ કરવાનું બંધ કરો"
-          },
-          "SubmitButton": {
-            "sendMessage": "સંદેશો મોકલો",
-            "stopTask": "કાર્યને અટકાવો"
-          },
-          "UploadButton": {
-            "attachFiles": "ફાઇલોને જોડો"
-          },
-          "waterMark": {
-            "text": "ની સાથે બિલ્ટ થયેલ"
-          }
-        },
-        "Messages": {
-          "index": {
-            "running": "ચાલી રહ્યુ છે",
-            "executedSuccessfully": "સફળતાપૂર્વક ચલાવ્યેલ છે",
-            "failed": "નિષ્ફળ",
-            "feedbackUpdated": "પ્રતિસાદ સુધારેલ છે",
-            "updating": "સુધારી રહ્યા છીએ"
-          }
-        },
-        "dropScreen": {
-          "dropYourFilesHere": "તમારી ફાઇલોને અંહિ મૂકો"
-        },
-        "index": {
-          "failedToUpload": "અપલોડ કરવામાં નિષ્ફળ",
-          "cancelledUploadOf": "નું અપલોડ રદ થયેલ છે",
-          "couldNotReachServer": "સર્વર સુધી પહોંચી શક્યા નહિં",
-          "continuingChat": "પહેલાની વાતચીતને ચાલુ રાખી રહ્યા છે"
-        },
-        "settings": {
-          "settingsPanel": "પેનલ સુયોજનો",
-          "reset": "પુન:સુયોજિત કરો",
-          "cancel": "રદ્દ",
-          "confirm": "ખાતરી કરો"
-        }
-      },
-      "threadHistory": {
-        "sidebar": {
-          "filters": {
-            "FeedbackSelect": {
-              "feedbackAll": "પ્રતિસાદ: બધા",
-              "feedbackPositive": "પ્રતિસાદ: હકારાત્મક",
-              "feedbackNegative": "પ્રતિસાદ: નકારાત્મક"
-            },
-            "SearchBar": {
-              "search": "શોધવું"
+        "rename": {
+          "title": "થ્રેડનું નામ બદલો",
+          "description": "આ થ્રેડ માટે નવું નામ દાખલ કરો",
+          "form": {
+            "name": {
+              "label": "નામ",
+              "placeholder": "નવું નામ દાખલ કરો"
             }
           },
-          "DeleteThreadButton": {
-            "confirmMessage": "આ થ્રેડની સાથે સાથે તેના સંદેશા અને તત્વોને પણ કાઢી નાખશે.",
-            "cancel": "રદ્દ",
-            "confirm": "ખાતરી કરો",
-            "deletingChat": "ચૅટને કાઢી રહ્યા છીએ",
-            "chatDeleted": "ચૅટ ડિલીટ થઈ ગઈ"
-          },
-          "index": {
-            "pastChats": "ભૂતકાળની વાતચીતો"
-          },
-          "ThreadList": {
-            "empty": "ખાલી...",
-            "today": "આજે",
-            "yesterday": "ગઇકાલે",
-            "previous7days": "પહેલાના ૭ દિવસો",
-            "previous30days": "પહેલાના ૩૦ દિવસો"
-          },
-          "TriggerButton": {
-            "closeSidebar": "બાજુપટ્ટીને બંધ કરો",
-            "openSidebar": "બાજુપટ્ટી ખોલો"
-          }
-        },
-        "Thread": {
-          "backToChat": "સંવાદમાં પાછા જાઓ",
-          "chatCreatedOn": "આ વાતચીત તેની પર બનાવેલ હતી"
+          "success": "થ્રેડનું નામ બદલાયું!",
+          "inProgress": "થ્રેડનું નામ બદલી રહ્યા છીએ"
         }
-      },
-      "header": {
-        "chat": "સંવાદ",
-        "readme": "રીડમે"
       }
     }
   },
-  "hooks": {
-    "useLLMProviders": {
-      "failedToFetchProviders": "પ્રદાતાઓને લાવવામાં નિષ્ફળતા:"
+  "navigation": {
+    "header": {
+      "chat": "ચેટ",
+      "readme": "વાંચો",
+      "theme": {
+        "light": "Light Theme",
+        "dark": "Dark Theme",
+        "system": "Follow System"
+      }
+    },
+    "newChat": {
+      "button": "નવી ચેટ",
+      "dialog": {
+        "title": "નવી ચેટ બનાવો",
+        "description": "આ તમારો વર્તમાન ચેટ ઇતિહાસ સાફ કરશે. શું તમે ચાલુ રાખવા માંગો છો?",
+        "tooltip": "નવી ચેટ"
+      }
+    },
+    "user": {
+      "menu": {
+        "settings": "સેટિંગ્સ",
+        "settingsKey": "S",
+        "apiKeys": "API કી",
+        "logout": "લૉગઆઉટ"
+      }
     }
   },
-  "pages": {
-    "Design": {},
-    "Env": {
-      "savedSuccessfully": "સફળતાપૂર્વક સંગ્રહાયેલ",
-      "requiredApiKeys": "જરૂરી API કીઓ",
-      "requiredApiKeysInfo": "આ એપ્લિકેશનનો ઉપયોગ કરવા માટે, નીચેની API કીઓ જરૂરી છે. કીઓ તમારા ડિવાઇસના સ્થાનિક સ્ટોરેજ પર સંગ્રહિત થાય છે."
+  "apiKeys": {
+    "title": "જરૂરી API કી",
+    "description": "આ એપ્લિકેશન વાપરવા માટે, નીચેની API કી જરૂરી છે. કી તમારા ડિવાઇસના લોકલ સ્ટોરેજમાં સંગ્રહિત થશે.",
+    "success": {
+      "saved": "સફળતાપૂર્વક સાચવ્યું"
+    }
+  },
+  "alerts": {
+    "info": "Info",
+    "note": "Note",
+    "tip": "Tip",
+    "important": "Important",
+    "warning": "Warning",
+    "caution": "Caution",
+    "debug": "Debug",
+    "example": "Example",
+    "success": "Success",
+    "help": "Help",
+    "idea": "Idea",
+    "pending": "Pending",
+    "security": "Security",
+    "beta": "Beta",
+    "best-practice": "Best Practice"
+  },
+  "components": {
+    "MultiSelectInput": {
+      "placeholder": "બેંચી લો..."
     },
-    "Page": {
-      "notPartOfProject": "તમે આ પ્રોજેક્ટનો ભાગ નથી."
-    },
-    "ResumeButton": {
-      "resumeChat": "ફરી શરૂ કરો સંવાદ"
+    "DatePickerInput": {
+      "placeholder": {
+        "single": "તારીખ પસંદ કરો",
+        "range": "તારીખની શ્રેણી પસંદ કરો"
+      }
     }
   }
 }

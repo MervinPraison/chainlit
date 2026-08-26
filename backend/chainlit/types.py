@@ -18,13 +18,25 @@ if TYPE_CHECKING:
     from chainlit.element import ElementDict
     from chainlit.step import StepDict
 
+from dataclasses import field
+
 from dataclasses_json import DataClassJsonMixin
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 from pydantic.dataclasses import dataclass
 
 InputWidgetType = Literal[
-    "switch", "slider", "select", "textinput", "tags", "numberinput"
+    "switch",
+    "slider",
+    "select",
+    "textinput",
+    "tags",
+    "numberinput",
+    "multiselect",
+    "checkbox",
+    "radio",
+    "datepicker",
 ]
+ToastType = Literal["info", "success", "warning", "error"]
 
 
 class ThreadDict(TypedDict):
@@ -45,9 +57,9 @@ class Pagination(BaseModel):
 
 
 class ThreadFilter(BaseModel):
-    feedback: Optional[Literal[0, 1]] = None
-    userId: Optional[str] = None
-    search: Optional[str] = None
+    feedback: Literal[0, 1] | None = None
+    userId: str | None = None
+    search: str | None = None
 
 
 @dataclass
@@ -79,7 +91,7 @@ T = TypeVar("T", covariant=True)
 class HasFromDict(Protocol[T]):
     @classmethod
     def from_dict(cls, obj_dict: Any) -> T:
-        raise NotImplementedError()
+        raise NotImplementedError
 
 
 @dataclass
@@ -124,7 +136,8 @@ class AskSpec(DataClassJsonMixin):
     """Specification for asking the user."""
 
     timeout: int
-    type: Literal["text", "file", "action"]
+    type: Literal["text", "file", "action", "element"]
+    step_id: str
 
 
 @dataclass
@@ -135,6 +148,13 @@ class AskFileSpec(FileSpec, AskSpec, DataClassJsonMixin):
 @dataclass
 class AskActionSpec(ActionSpec, AskSpec, DataClassJsonMixin):
     """Specification for asking the user an action"""
+
+
+@dataclass
+class AskElementSpec(AskSpec, DataClassJsonMixin):
+    """Specification for asking the user a custom element"""
+
+    element_id: str
 
 
 class FileReference(TypedDict):
@@ -168,10 +188,12 @@ class InputAudioChunk:
     elapsedTime: float
     data: bytes
 
+
 class OutputAudioChunk(TypedDict):
     track: str
     mimeType: str
     data: bytes
+
 
 @dataclass
 class AskFileResponse:
@@ -184,12 +206,25 @@ class AskFileResponse:
 
 class AskActionResponse(TypedDict):
     name: str
-    value: str
+    payload: Dict
     label: str
-    description: str
+    tooltip: str
     forId: str
     id: str
-    collapsed: bool
+
+
+class AskElementResponse(TypedDict, total=False):
+    submitted: bool
+
+
+class UpdateThreadRequest(BaseModel):
+    threadId: str
+    name: str
+
+
+class ShareThreadRequest(BaseModel):
+    threadId: str
+    isShared: bool
 
 
 class DeleteThreadRequest(BaseModel):
@@ -205,6 +240,46 @@ class GetThreadsRequest(BaseModel):
     filter: ThreadFilter
 
 
+class CallActionRequest(BaseModel):
+    action: Dict
+    sessionId: str
+
+
+class ConnectMCPRequest(BaseModel):
+    """Request to connect an MCP server.
+
+    Named server (developer-configured in config): provide sessionId + name only.
+    User-provided server (SSE/HTTP only, when enabled): also provide clientType + url.
+    """
+
+    sessionId: str
+    name: str
+    # Present only for user-provided connections:
+    clientType: Optional[Literal["sse", "streamable-http"]] = None
+    url: Optional[str] = None
+    headers: Optional[Dict[str, str]] = None
+
+    @model_validator(mode="after")
+    def validate_user_provided_consistency(self) -> "ConnectMCPRequest":
+        has_url = self.url is not None
+        has_type = self.clientType is not None
+        if has_url != has_type:
+            raise ValueError(
+                "Both 'url' and 'clientType' must be provided together for user-provided connections"
+            )
+        return self
+
+
+class DisconnectMCPRequest(BaseModel):
+    sessionId: str
+    name: str
+
+
+class ElementRequest(BaseModel):
+    element: Dict
+    sessionId: str
+
+
 class Theme(str, Enum):
     light = "light"
     dark = "dark"
@@ -216,7 +291,17 @@ class Starter(DataClassJsonMixin):
 
     label: str
     message: str
+    command: Optional[str] = None
     icon: Optional[str] = None
+
+
+@dataclass
+class StarterCategory(DataClassJsonMixin):
+    """A category/group of starters with an optional icon."""
+
+    label: str
+    icon: Optional[str] = None
+    starters: List[Starter] = field(default_factory=list)
 
 
 @dataclass
@@ -226,11 +311,28 @@ class ChatProfile(DataClassJsonMixin):
     name: str
     markdown_description: str
     icon: Optional[str] = None
+    display_name: Optional[str] = None
     default: bool = False
     starters: Optional[List[Starter]] = None
+    config_overrides: Any = None
 
 
 FeedbackStrategy = Literal["BINARY"]
+
+
+class CommandDict(TypedDict):
+    # The identifier of the command, will be displayed in the UI
+    id: str
+    # The description of the command, will be displayed in the UI
+    description: str
+    # The lucide icon name
+    icon: str
+    # Display the command as a button in the composer
+    button: Optional[bool]
+    # Whether the command will be persistent unless the user toggles it
+    persistent: Optional[bool]
+    # Whether the command should be pre-selected when loaded
+    selected: Optional[bool]
 
 
 class FeedbackDict(TypedDict):
@@ -251,3 +353,4 @@ class Feedback:
 
 class UpdateFeedbackRequest(BaseModel):
     feedback: Feedback
+    sessionId: str

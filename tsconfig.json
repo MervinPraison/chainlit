@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "lib": ["ESNext", "dom"],
-    "types": ["cypress", "node"]
+    "types": ["cypress", "cypress-plugin-steps", "node"],
+    "baseUrl": ".",
+    "esModuleInterop": true
   },
-  "include": ["cypress/**/*.ts"]
+  "include": ["cypress/**/*.ts", "cypress.config.ts"]
 }

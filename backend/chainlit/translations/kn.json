@@ -1,231 +1,260 @@
 {
-  "components": {
-    "atoms": {
-      "buttons": {
-        "userButton": {
-          "menu": {
-            "settings": "ಸೆಟ್ಟಿಂಗ್ ಗಳು",
-            "settingsKey": "S",
-            "APIKeys": "API ಕೀಲಿಗಳು",
-            "logout": "ಲಾಗ್ ಔಟ್"
-          }
+  "common": {
+    "actions": {
+      "cancel": "ರದ್ದುಮಾಡಿ",
+      "confirm": "ದೃಢೀಕರಿಸಿ",
+      "continue": "ಮುಂದುವರಿಸಿ",
+      "goBack": "ಹಿಂದೆ ಹೋಗಿ",
+      "reset": "ಮರುಹೊಂದಿಸಿ",
+      "submit": "ಸಲ್ಲಿಸಿ"
+    },
+    "status": {
+      "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+      "error": {
+        "default": "ದೋಷ ಸಂಭವಿಸಿದೆ",
+        "serverConnection": "ಸರ್ವರ್‌ ಅನ್ನು ತಲುಪಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಪ್ರವೇಶಿಸಲು ಲಾಗಿನ್ ಮಾಡಿ",
+      "form": {
+        "email": {
+          "label": "ಇಮೇಲ್ ವಿಳಾಸ",
+          "required": "ಇಮೇಲ್ ಅಗತ್ಯವಿರುವ ಕ್ಷೇತ್ರ",
+          "placeholder": "me@example.com"
+        },
+        "password": {
+          "label": "ಪಾಸ್‌ವರ್ಡ್",
+          "required": "ಪಾಸ್‌ವರ್ಡ್ ಅಗತ್ಯವಿರುವ ಕ್ಷೇತ್ರ"
+        },
+        "actions": {
+          "signin": "ಸೈನ್ ಇನ್ ಮಾಡಿ"
+        },
+        "alternativeText": {
+          "or": "ಅಥವಾ"
+        }
+      },
+      "errors": {
+        "default": "ಸೈನ್ ಇನ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
+        "signin": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ",
+        "oauthSignin": "ಸೈನ್ ಇನ್ ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ, ಅಥವಾ ಬೇರೆ ಸೈನ್ ಇನ್ ವಿಧಾನ ಬಳಸಿ.",
+        "redirectUriMismatch": "ರೀಡೈರೆಕ್ಟ್ URI ಓಥ್ ಅಪ್ಲಿಕೇಶನ್ ಕಾನ್ಫಿಗರೇಶನ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ",
+        "oauthCallback": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ",
+        "oauthCreateAccount": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ",
+        "emailCreateAccount": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ",
+        "callback": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ",
+        "oauthAccountNotLinked": "ನಿಮ್ಮ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಲು, ನೀವು ಮೊದಲು ಬಳಸಿದ ಅದೇ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ",
+        "emailSignin": "ಇಮೇಲ್ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
+        "emailVerify": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಮೇಲ್ ಪರಿಶೀಲಿಸಿ, ಹೊಸ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ",
+        "credentialsSignin": "ಸೈನ್ ಇನ್ ವಿಫಲವಾಗಿದೆ. ನೀವು ಒದಗಿಸಿದ ವಿವರಗಳು ಸರಿಯಾಗಿವೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ",
+        "sessionRequired": "ಈ ಪುಟವನ್ನು ಪ್ರವೇಶಿಸಲು ದಯವಿಟ್ಟು ಸೈನ್ ಇನ್ ಮಾಡಿ"
+      }
+    },
+    "provider": {
+      "continue": "{{provider}} ನೊಂದಿಗೆ ಮುಂದುವರಿಸಿ"
+    }
+  },
+  "chat": {
+    "input": {
+      "placeholder": "ನಿಮ್ಮ ಸಂದೇಶವನ್ನು ಇಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ...",
+      "actions": {
+        "send": "ಸಂದೇಶ ಕಳುಹಿಸಿ",
+        "stop": "ಕಾರ್ಯ ನಿಲ್ಲಿಸಿ",
+        "attachFiles": "ಫೈಲ್‌ಗಳನ್ನು ಲಗತ್ತಿಸಿ"
+      }
+    },
+    "favorites": {
+      "use": "ಮೆಚ್ಚಿನ ಸಂದೇಶವನ್ನು ಬಳಸಿ",
+      "headline": "ಮೆಚ್ಚಿನ ಸಂದೇಶಗಳು",
+      "remove": "ಮೆಚ್ಚಿನ ಸಂದೇಶವನ್ನು ತೆಗೆದುಹಾಕಿ",
+      "empty": {
+        "title": "ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಾಂಪ್ಟ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗಿಲ್ಲ",
+        "description": "ಪ್ರಾಂಪ್ಟ್ ಕಳುಹಿಸಿ ಮತ್ತು ಅದಕ್ಕೆ ಸ್ಟಾರ್ ಮಾಡಿ ಅಥವಾ ಹಿಂದಿನ ಚಾಟ್‌ಗಳಿಂದ ಪ್ರಾಂಪ್ಟ್‌ಗೆ ಸ್ಟಾರ್ ಮಾಡಿ"
+      }
+    },
+    "commands": {
+      "button": "ಉಪಕರಣಗಳು",
+      "changeTool": "ಉಪಕರಣವನ್ನು ಬದಲಿಸಿ",
+      "availableTools": "ಲಭ್ಯವಿರುವ ಉಪಕರಣಗಳು"
+    },
+    "speech": {
+      "start": "ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ",
+      "stop": "ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸಿ",
+      "connecting": "ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ"
+    },
+    "fileUpload": {
+      "dragDrop": "ಫೈಲ್‌ಗಳನ್ನು ಇಲ್ಲಿ ಎಳೆದು ಬಿಡಿ",
+      "browse": "ಫೈಲ್‌ಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ",
+      "sizeLimit": "ಮಿತಿ:",
+      "errors": {
+        "failed": "ಅಪ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ",
+        "cancelled": "ಅಪ್‌ಲೋಡ್ ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ"
+      },
+      "actions": {
+        "cancelUpload": "ಅಪ್‌ಲೋಡ್ ರದ್ದುಗೊಳಿಸಿ",
+        "removeAttachment": "ಅಟ್ಯಾಚ್‌ಮೆಂಟ್ ಅನ್ನು ತೆಗೆದುಹಾಕಿ"
+      }
+    },
+    "messages": {
+      "status": {
+        "using": "ಬಳಸುತ್ತಿರುವುದು",
+        "used": "ಬಳಸಲಾಗಿದೆ"
+      },
+      "actions": {
+        "copy": {
+          "button": "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಿ",
+          "success": "ನಕಲಿಸಲಾಗಿದೆ!"
+        }
+      },
+      "feedback": {
+        "positive": "ಸಹಾಯಕವಾಗಿದೆ",
+        "negative": "ಸಹಾಯಕವಾಗಿಲ್ಲ",
+        "edit": "ಪ್ರತಿಕ್ರಿಯೆ ಸಂಪಾದಿಸಿ",
+        "dialog": {
+          "title": "ಕಾಮೆಂಟ್ ಸೇರಿಸಿ",
+          "submit": "ಪ್ರತಿಕ್ರಿಯೆ ಸಲ್ಲಿಸಿ",
+          "yourFeedback": "ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆ..."
+        },
+        "status": {
+          "updating": "ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ",
+          "updated": "ಪ್ರತಿಕ್ರಿಯೆ ನವೀಕರಿಸಲಾಗಿದೆ"
         }
       }
     },
-    "molecules": {
-      "newChatButton": {
-        "newChat": "ಹೊಸ ಚಾಟ್"
+    "history": {
+      "title": "ಕೊನೆಯ ಇನ್‌ಪುಟ್‌ಗಳು",
+      "empty": "ಖಾಲಿಯಾಗಿದೆ...",
+      "show": "ಇತಿಹಾಸ ತೋರಿಸಿ"
+    },
+    "settings": {
+      "title": "ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಪ್ಯಾನೆಲ್",
+      "customize": "ಈಗ ನಿಮ್ಮ ಚಾಟ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ"
+    },
+    "watermark": "LLM ಗಳು ತಪ್ಪುಗಳನ್ನು ಮಾಡಬಹುದು. ಪ್ರಮುಖ ಮಾಹಿತಿಯನ್ನು ಪರಿಶೀಲಿಸುವುದನ್ನು ಪರಿಗಣಿಸಿ."
+  },
+  "threadHistory": {
+    "sidebar": {
+      "title": "ಹಿಂದಿನ ಸಂಭಾಷಣೆಗಳು",
+      "filters": {
+        "search": "ಹುಡುಕಿ",
+        "placeholder": "Search conversations..."
       },
-      "tasklist": {
-        "TaskList": {
-          "title": "🗒️ ಕಾರ್ಯ ಪಟ್ಟಿ",
-          "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
-          "error": "ದೋಷ ಸಂಭವಿಸಿದೆ"
-        }
+      "timeframes": {
+        "today": "ಇಂದು",
+        "yesterday": "ನಿನ್ನೆ",
+        "previous7days": "ಹಿಂದಿನ 7 ದಿನಗಳು",
+        "previous30days": "ಹಿಂದಿನ 30 ದಿನಗಳು"
       },
-      "attachments": {
-        "cancelUpload": "ಅಪ್ ಲೋಡ್ ರದ್ದು ಮಾಡಿ",
-        "removeAttachment": "ಲಗತ್ತು ತೆಗೆದುಹಾಕಿ"
+      "empty": "ಯಾವುದೇ ಸಂಭಾಷಣೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ",
+      "actions": {
+        "close": "ಪಕ್ಕದ ಪಟ್ಟಿ ಮುಚ್ಚಿ",
+        "open": "ಪಕ್ಕದ ಪಟ್ಟಿ ತೆರೆಯಿರಿ"
+      }
+    },
+    "thread": {
+      "untitled": "ಶೀರ್ಷಿಕೆರಹಿತ ಸಂಭಾಷಣೆ",
+      "menu": {
+        "rename": "ಮರುಹೆಸರಿಸಿ",
+        "share": "ಹಂಚಿಕೊಳ್ಳಿ",
+        "delete": "ಅಳಿಸಿ"
       },
-      "newChatDialog": {
-        "createNewChat": "ಹೊಸ ಚಾಟ್ ರಚಿಸಬೇಕೆ?",
-        "clearChat": "ಇದು ಪ್ರಸ್ತುತ ಸಂದೇಶಗಳನ್ನು ತೆರವುಗೊಳಿಸುತ್ತದೆ ಮತ್ತು ಹೊಸ ಚಾಟ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತದೆ.",
-        "cancel": "ರದ್ದುಮಾಡಿ",
-        "confirm": "ದೃಢಪಡಿಸಿ"
-      },
-      "settingsModal": {
-        "settings": "ಸೆಟ್ಟಿಂಗ್ ಗಳು",
-        "expandMessages": "ಸಂದೇಶಗಳನ್ನು ವಿಸ್ತರಿಸಿ",
-        "hideChainOfThought": "ಚಿಂತನೆಯ ಸರಪಳಿಯನ್ನು ಮರೆಮಾಡು",
-        "darkMode": "ಡಾರ್ಕ್ ಮೋಡ್"
-      },
-      "detailsButton": {
-        "using": "ಬಳಸಲಾಗುತ್ತಿದೆ",
-        "running": "ಚಲಿಸುತ್ತಿದೆ",
-        "took_one": "{{count}} ಹೆಜ್ಜೆ ಇಟ್ಟಿದೆ",
-        "took_other": "{{count}} ಹೆಜ್ಜೆಗಳನ್ನು ತೆಗೆದುಕೊಂಡರು"
-      },
-      "auth": {
-        "authLogin": {
-          "title": "ಅಪ್ಲಿಕೇಶನ್ ಪ್ರವೇಶಿಸಲು ಲಾಗಿನ್ ಮಾಡಿ.",
-          "form": {
-            "email": "ಇಮೇಲ್ ವಿಳಾಸ",
-            "password": "ಪಾಸ್ ವರ್ಡ್",
-            "noAccount": "ಖಾತೆ ಇಲ್ಲವೇ?",
-            "alreadyHaveAccount": "ಈಗಾಗಲೇ ಖಾತೆಯನ್ನು ಹೊಂದಿದ್ದೀರಾ?",
-            "signup": "ಸೈನ್ ಅಪ್ ಮಾಡಿ",
-            "signin": "ಸೈನ್ ಇನ್ ಮಾಡಿ",
-            "or": "ಅಥವಾ",
-            "continue": "ಮುಂದುವರಿಸಿ",
-            "forgotPassword": "ಪಾಸ್ ವರ್ಡ್ ಮರೆತಿದ್ದೀರಾ?",
-            "passwordMustContain": "ನಿಮ್ಮ ಪಾಸ್ ವರ್ಡ್ ಇವುಗಳನ್ನು ಒಳಗೊಂಡಿರಬೇಕು:",
-            "emailRequired": "ಇಮೇಲ್ ಅವಶ್ಯಕ ಫೀಲ್ಡ್ ಆಗಿದೆ",
-            "passwordRequired": "ಪಾಸ್ ವರ್ಡ್ ಅವಶ್ಯಕ ಫೀಲ್ಡ್ ಆಗಿದೆ"
+      "actions": {
+        "share": {
+          "title": "ಚಾಟ್‌ಗೆ ಲಿಂಕ್ ಹಂಚಿಕೊಳ್ಳಿ",
+          "button": "ಹಂಚಿಕೊಳ್ಳಿ",
+          "status": {
+            "copied": "ಲಿಂಕ್ ಪ್ರತಿಲಿಪಿ ಮಾಡಲಾಗಿದೆ",
+            "created": "ಹಂಚಿಕೆಯ ಲಿಂಕ್ ರಚಿಸಲಾಗಿದೆ!",
+            "unshared": "ಈ ಸಂಭಾಷಣೆಗೆ ಹಂಚಿಕೆ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"
           },
           "error": {
-            "default": "ಸೈನ್ ಇನ್ ಮಾಡಲು ಅಸಮರ್ಥವಾಗಿದೆ.",
-            "signin": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.",
-            "oauthsignin": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.",
-            "redirect_uri_mismatch": "ಮರುನಿರ್ದೇಶನದ URI ಆ್ಯಪ್ ಕಾನ್ಫಿಗರೇಶನ್ ಗೆ ಹೋಲಿಕೆಯಾಗುತ್ತಿಲ್ಲ.",
-            "oauthcallbackerror": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.",
-            "oauthcreateaccount": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.",
-            "emailcreateaccount": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.",
-            "callback": "ಬೇರೆ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.",
-            "oauthaccountnotlinked": "ನಿಮ್ಮ ಗುರುತನ್ನು ದೃಢೀಕರಿಸಲು, ನೀವು ಮೂಲತಃ ಬಳಸಿದ ಅದೇ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ.",
-            "emailsignin": "ಇ-ಮೇಲ್ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
-            "emailverify": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಮೇಲ್ ಪರಿಶೀಲಿಸಿ, ಹೊಸ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ.",
-            "credentialssignin": "ಸೈನ್ ಇನ್ ವಿಫಲವಾಗಿದೆ. ನೀವು ಒದಗಿಸಿದ ವಿವರಗಳು ಸರಿಯಾಗಿವೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.",
-            "sessionrequired": "ಈ ಪುಟವನ್ನು ಪ್ರವೇಶಿಸಲು ದಯವಿಟ್ಟು ಸೈನ್ ಇನ್ ಮಾಡಿ."
+            "create": "ಹಂಚಿಕೆಯ ಲಿಂಕ್ ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ",
+            "unshare": "ಸಂಭಾಷಣೆ ಹಂಚಿಕೆಯನ್ನು ರದ್ದು ಮಾಡಲು ವಿಫಲವಾಗಿದೆ"
           }
         },
-        "authVerifyEmail": {
-          "almostThere": "ನೀವು ಬಹುತೇಕ ಅಲ್ಲಿದ್ದೀರಿ! ನಾವು ಗೆ ಇಮೇಲ್ ಕಳುಹಿಸಿದ್ದೇವೆ ",
-          "verifyEmailLink": "ನಿಮ್ಮ ಸೈನ್ ಅಪ್ ಪೂರ್ಣಗೊಳಿಸಲು ದಯವಿಟ್ಟು ಆ ಇಮೇಲ್ ನಲ್ಲಿರುವ ಲಿಂಕ್ ಕ್ಲಿಕ್ ಮಾಡಿ.",
-          "didNotReceive": "ಇಮೇಲ್ ಹುಡುಕಲು ಸಾಧ್ಯವಿಲ್ಲವೇ?",
-          "resendEmail": "ಇಮೇಲ್ ಅನ್ನು ಮತ್ತೆ ಕಳಿಸಿ",
-          "goBack": "ಹಿಂದೆ ಹೋಗು",
-          "emailSent": "ಇಮೇಲ್ ಯಶಸ್ವಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆ.",
-          "verifyEmail": "ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಪರಿಶೀಲಿಸಿ"
+        "delete": {
+          "title": "ಅಳಿಸುವಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ",
+          "description": "ಇದು ಸಂಭಾಷಣೆಯನ್ನು ಹಾಗೂ ಅದರ ಸಂದೇಶಗಳು ಮತ್ತು ಅಂಶಗಳನ್ನು ಅಳಿಸುತ್ತದೆ. ಈ ಕ್ರಿಯೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ",
+          "success": "ಸಂಭಾಷಣೆ ಅಳಿಸಲಾಗಿದೆ",
+          "inProgress": "ಸಂಭಾಷಣೆ ಅಳಿಸಲಾಗುತ್ತಿದೆ"
         },
-        "providerButton": {
-          "continue": "{{provider}} ನೊಂದಿಗೆ ಮುಂದುವರಿಸಿ",
-          "signup": "{{provider}} ನೊಂದಿಗೆ ಸೈನ್ ಅಪ್ ಮಾಡಿ"
-        },
-        "authResetPassword": {
-          "newPasswordRequired": "ಹೊಸ ಪಾಸ್ ವರ್ಡ್ ಅವಶ್ಯಕ ಫೀಲ್ಡ್ ಆಗಿದೆ",
-          "passwordsMustMatch": "ಪಾಸ್ ವರ್ಡ್ ಗಳು ಹೊಂದಿಕೆಯಾಗಬೇಕು",
-          "confirmPasswordRequired": "ಪಾಸ್ ವರ್ಡ್ ಅವಶ್ಯಕ ಫೀಲ್ಡ್ ಎಂದು ದೃಢಪಡಿಸಿ",
-          "newPassword": "ಹೊಸ ಪಾಸ್ ವರ್ಡ್",
-          "confirmPassword": "ಪಾಸ್ ವರ್ಡ್ ದೃಢಪಡಿಸಿ",
-          "resetPassword": "ಪಾಸ್ ವರ್ಡ್ ಮರುಹೊಂದಿಸಿ"
-        },
-        "authForgotPassword": {
-          "email": "ಇಮೇಲ್ ವಿಳಾಸ",
-          "emailRequired": "ಇಮೇಲ್ ಅವಶ್ಯಕ ಫೀಲ್ಡ್ ಆಗಿದೆ",
-          "emailSent": "ನಿಮ್ಮ ಪಾಸ್ ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ಸೂಚನೆಗಳಿಗಾಗಿ ದಯವಿಟ್ಟು ಇಮೇಲ್ ವಿಳಾಸ {{email}} ಪರಿಶೀಲಿಸಿ.",
-          "enterEmail": "ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಪಾಸ್ ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ನಾವು ನಿಮಗೆ ಸೂಚನೆಗಳನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.",
-          "resendEmail": "ಇಮೇಲ್ ಅನ್ನು ಮತ್ತೆ ಕಳಿಸಿ",
-          "continue": "ಮುಂದುವರಿಸಿ",
-          "goBack": "ಹಿಂದೆ ಹೋಗು"
-        }
-      }
-    },
-    "organisms": {
-      "chat": {
-        "history": {
-          "index": {
-            "showHistory": "ಇತಿಹಾಸ ತೋರಿಸು",
-            "lastInputs": "ಕೊನೆಯ ಇನ್ ಪುಟ್ ಗಳು",
-            "noInputs": "ಎಂತಹ ಖಾಲಿ...",
-            "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
-          }
-        },
-        "inputBox": {
-          "input": {
-            "placeholder": "ನಿಮ್ಮ ಸಂದೇಶವನ್ನು ಇಲ್ಲಿ ಬೆರಳಚ್ಚಿಸಿ..."
-          },
-          "speechButton": {
-            "start": "ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ",
-            "stop": "ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸು"
-          },
-          "SubmitButton": {
-            "sendMessage": "ಸಂದೇಶ ಕಳಿಸಿ",
-            "stopTask": "ನಿಲ್ಲಿಸು ಕಾರ್ಯ"
-          },
-          "UploadButton": {
-            "attachFiles": "ಫೈಲ್ ಗಳನ್ನು ಲಗತ್ತಿಸಿ"
-          },
-          "waterMark": {
-            "text": "ಇದರೊಂದಿಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ"
-          }
-        },
-        "Messages": {
-          "index": {
-            "running": "ಚಲಿಸುತ್ತಿದೆ",
-            "executedSuccessfully": "ಯಶಸ್ವಿಯಾಗಿ ಕಾರ್ಯಗತಗೊಳಿಸಲಾಗಿದೆ",
-            "failed": "ವಿಫಲವಾಗಿದೆ",
-            "feedbackUpdated": "ಪ್ರತಿಕ್ರಿಯೆ ನವೀಕರಿಸಲಾಗಿದೆ",
-            "updating": "ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ"
-          }
-        },
-        "dropScreen": {
-          "dropYourFilesHere": "ನಿಮ್ಮ ಫೈಲ್ ಗಳನ್ನು ಇಲ್ಲಿ ಬಿಡಿ"
-        },
-        "index": {
-          "failedToUpload": "ಅಪ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ",
-          "cancelledUploadOf": "ಅಪ್ ಲೋಡ್ ರದ್ದುಗೊಂಡಿದೆ",
-          "couldNotReachServer": "ಸರ್ವರ್ ತಲುಪಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
-          "continuingChat": "ಹಿಂದಿನ ಚಾಟ್ ಮುಂದುವರಿಯುತ್ತಿದೆ"
-        },
-        "settings": {
-          "settingsPanel": "ಸೆಟ್ಟಿಂಗ್ ಗಳ ಫಲಕ",
-          "reset": "ಮರುಹೊಂದಿಸಿ",
-          "cancel": "ರದ್ದುಮಾಡಿ",
-          "confirm": "ದೃಢಪಡಿಸಿ"
-        }
-      },
-      "threadHistory": {
-        "sidebar": {
-          "filters": {
-            "FeedbackSelect": {
-              "feedbackAll": "ಪ್ರತಿಕ್ರಿಯೆ: ಎಲ್ಲವೂ",
-              "feedbackPositive": "ಪ್ರತಿಕ್ರಿಯೆ: ಧನಾತ್ಮಕ",
-              "feedbackNegative": "ಪ್ರತಿಕ್ರಿಯೆ: ನಕಾರಾತ್ಮಕ"
-            },
-            "SearchBar": {
-              "search": "ಹುಡುಕು"
+        "rename": {
+          "title": "ಸಂಭಾಷಣೆಯ ಹೆಸರು ಬದಲಾಯಿಸಿ",
+          "description": "ಈ ಸಂಭಾಷಣೆಗೆ ಹೊಸ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+          "form": {
+            "name": {
+              "label": "ಹೆಸರು",
+              "placeholder": "ಹೊಸ ಹೆಸರನ್ನು ನಮೂದಿಸಿ"
             }
           },
-          "DeleteThreadButton": {
-            "confirmMessage": "ಇದು ಥ್ರೆಡ್ ಮತ್ತು ಅದರ ಸಂದೇಶಗಳು ಮತ್ತು ಅಂಶಗಳನ್ನು ಅಳಿಸುತ್ತದೆ.",
-            "cancel": "ರದ್ದುಮಾಡಿ",
-            "confirm": "ದೃಢಪಡಿಸಿ",
-            "deletingChat": "ಚಾಟ್ ಅಳಿಸಲಾಗುತ್ತಿದೆ",
-            "chatDeleted": "ಚಾಟ್ ಅಳಿಸಲಾಗಿದೆ"
-          },
-          "index": {
-            "pastChats": "ಹಿಂದಿನ ಚಾಟ್ ಗಳು"
-          },
-          "ThreadList": {
-            "empty": "ಖಾಲಿ...",
-            "today": "ಇಂದು",
-            "yesterday": "ನಿನ್ನೆ",
-            "previous7days": "ಹಿಂದಿನ 7 ದಿನಗಳು",
-            "previous30days": "ಹಿಂದಿನ 30 ದಿನಗಳು"
-          },
-          "TriggerButton": {
-            "closeSidebar": "ಸೈಡ್ ಬಾರ್ ಮುಚ್ಚು",
-            "openSidebar": "ಸೈಡ್ ಬಾರ್ ತೆರೆಯಿರಿ"
-          }
-        },
-        "Thread": {
-          "backToChat": "ಚಾಟ್ ಗೆ ಹಿಂತಿರುಗಿ",
-          "chatCreatedOn": "ಈ ಚಾಟ್ ಅನ್ನು ಈ ನಲ್ಲಿ ರಚಿಸಲಾಗಿದೆ"
+          "success": "ಸಂಭಾಷಣೆಯ ಹೆಸರು ಬದಲಾಯಿಸಲಾಗಿದೆ!",
+          "inProgress": "ಸಂಭಾಷಣೆಯ ಹೆಸರು ಬದಲಾಯಿಸಲಾಗುತ್ತಿದೆ"
         }
-      },
-      "header": {
-        "chat": "ಚಾಟ್",
-        "readme": "Readme"
       }
     }
   },
-  "hooks": {
-    "useLLMProviders": {
-      "failedToFetchProviders": "ಪೂರೈಕೆದಾರರನ್ನು ಕರೆತರಲು ವಿಫಲವಾಗಿದೆ:"
+  "navigation": {
+    "header": {
+      "chat": "ಸಂಭಾಷಣೆ",
+      "readme": "ಓದಿ",
+      "theme": {
+        "light": "Light Theme",
+        "dark": "Dark Theme",
+        "system": "Follow System"
+      }
+    },
+    "newChat": {
+      "button": "ಹೊಸ ಸಂಭಾಷಣೆ",
+      "dialog": {
+        "title": "ಹೊಸ ಸಂಭಾಷಣೆ ರಚಿಸಿ",
+        "description": "ಇದು ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಸಂಭಾಷಣೆಯ ಇತಿಹಾಸವನ್ನು ಅಳಿಸುತ್ತದೆ. ನೀವು ಮುಂದುವರೆಯಲು ಬಯಸುವಿರಾ?",
+        "tooltip": "ಹೊಸ ಸಂಭಾಷಣೆ"
+      }
+    },
+    "user": {
+      "menu": {
+        "settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+        "settingsKey": "S",
+        "apiKeys": "API ಕೀಗಳು",
+        "logout": "ಲಾಗ್ ಔಟ್"
+      }
     }
   },
-  "pages": {
-    "Design": {},
-    "Env": {
-      "savedSuccessfully": "ಯಶಸ್ವಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ",
-      "requiredApiKeys": "ಅವಶ್ಯಕ API ಕೀಲಿಗಳು",
-      "requiredApiKeysInfo": "ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಬಳಸಲು, ಈ ಕೆಳಗಿನ ಎಪಿಐ ಕೀಲಿಗಳು ಬೇಕಾಗುತ್ತವೆ. ಕೀಲಿಗಳನ್ನು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳೀಯ ಸಂಗ್ರಹಣೆಯಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ."
+  "apiKeys": {
+    "title": "ಅಗತ್ಯವಿರುವ API ಕೀಗಳು",
+    "description": "ಈ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಲು, ಈ ಕೆಳಗಿನ API ಕೀಗಳು ಅಗತ್ಯವಿರುತ್ತವೆ. ಕೀಗಳನ್ನು ನಿಮ್ಮ ಸಾಧನದ ಸ್ಥಳೀಯ ಸಂಗ್ರಹಣೆಯಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ.",
+    "success": {
+      "saved": "ಯಶಸ್ವಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ"
+    }
+  },
+  "alerts": {
+    "info": "Info",
+    "note": "Note",
+    "tip": "Tip",
+    "important": "Important",
+    "warning": "Warning",
+    "caution": "Caution",
+    "debug": "Debug",
+    "example": "Example",
+    "success": "Success",
+    "help": "Help",
+    "idea": "Idea",
+    "pending": "Pending",
+    "security": "Security",
+    "beta": "Beta",
+    "best-practice": "Best Practice"
+  },
+  "components": {
+    "MultiSelectInput": {
+      "placeholder": "ಚುನಾಯಿಸಿ..."
     },
-    "Page": {
-      "notPartOfProject": "ನೀವು ಈ ಯೋಜನೆಯ ಭಾಗವಾಗಿಲ್ಲ."
-    },
-    "ResumeButton": {
-      "resumeChat": "ಚಾಟ್ ಪುನರಾರಂಭಿಸಿ"
+    "DatePickerInput": {
+      "placeholder": {
+        "single": "ದಿನಾಂಕವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+        "range": "ದಿನಾಂಕ ಶ್ರೇಣಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+      }
     }
   }
 }

@@ -1,231 +1,260 @@
 {
-  "components": {
-    "atoms": {
-      "buttons": {
-        "userButton": {
-          "menu": {
-            "settings": "సెట్టింగ్ లు",
-            "settingsKey": "S",
-            "APIKeys": "API Keys",
-            "logout": "Logout"
-          }
+  "common": {
+    "actions": {
+      "cancel": "రద్దు చేయండి",
+      "confirm": "నిర్ధారించండి",
+      "continue": "కొనసాగించండి",
+      "goBack": "వెనక్కి వెళ్ళండి",
+      "reset": "రీసెట్ చేయండి",
+      "submit": "సమర్పించండి"
+    },
+    "status": {
+      "loading": "లోడ్ అవుతోంది...",
+      "error": {
+        "default": "లోపం సంభవించింది",
+        "serverConnection": "సర్వర్‌ని చేరుకోలేకపోయాము"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "యాప్‌ని ఉపయోగించడానికి లాగిన్ చేయండి",
+      "form": {
+        "email": {
+          "label": "ఇమెయిల్ చిరునామా",
+          "required": "ఇమెయిల్ తప్పనిసరి",
+          "placeholder": "me@example.com"
+        },
+        "password": {
+          "label": "పాస్‌వర్డ్",
+          "required": "పాస్‌వర్డ్ తప్పనిసరి"
+        },
+        "actions": {
+          "signin": "సైన్ ఇన్ చేయండి"
+        },
+        "alternativeText": {
+          "or": "లేదా"
+        }
+      },
+      "errors": {
+        "default": "సైన్ ఇన్ చేయలేకపోయాము",
+        "signin": "వేరే ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి",
+        "oauthSignin": "సైన్ ఇన్ విఫలమైంది. దయచేసి మళ్ళీ ప్రయత్నించండి, లేదా వేరే సైన్ ఇన్ పద్ధతిని ఉపయోగించండి.",
+        "redirectUriMismatch": "రీడైరెక్ట్ URI oauth యాప్ కాన్ఫిగరేషన్‌తో సరిపోలడం లేదు",
+        "oauthCallback": "వేరే ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి",
+        "oauthCreateAccount": "వేరే ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి",
+        "emailCreateAccount": "వేరే ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి",
+        "callback": "వేరే ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి",
+        "oauthAccountNotLinked": "మీ గుర్తింపును నిర్ధారించడానికి, మీరు మొదట ఉపయోగించిన అదే ఖాతాతో సైన్ ఇన్ చేయండి",
+        "emailSignin": "ఇమెయిల్ పంపడం సాధ్యం కాలేదు",
+        "emailVerify": "దయచేసి మీ ఇమెయిల్‌ని ధృవీకరించండి, కొత్త ఇమెయిల్ పంపబడింది",
+        "credentialsSignin": "సైన్ ఇన్ విఫలమైంది. మీరు అందించిన వివరాలు సరైనవేనా అని తనిఖీ చేయండి",
+        "sessionRequired": "ఈ పేజీని యాక్సెస్ చేయడానికి దయచేసి సైన్ ఇన్ చేయండి"
+      }
+    },
+    "provider": {
+      "continue": "{{provider}}తో కొనసాగించండి"
+    }
+  },
+  "chat": {
+    "input": {
+      "placeholder": "మీ సందేశాన్ని ఇక్కడ టైప్ చేయండి...",
+      "actions": {
+        "send": "సందేశం పంపండి",
+        "stop": "పని ఆపండి",
+        "attachFiles": "ఫైల్స్ జోడించండి"
+      }
+    },
+    "speech": {
+      "start": "రికార్డింగ్ ప్రారంభించండి",
+      "stop": "రికార్డింగ్ ఆపండి",
+      "connecting": "అనుసంధానిస్తోంది"
+    },
+    "favorites": {
+      "use": "ఇష్టమైన సందేశాన్ని ఉపయోగించండి",
+      "headline": "ఇష్టమైన సందేశాలు",
+      "remove": "ఇష్టమైనదాన్ని తొలగించండి",
+      "empty": {
+        "title": "ఇంకా ప్రాంప్ట్‌లు సేవ్ చేయలేదు",
+        "description": "ఒక ప్రాంప్ట్ పంపి దానికి స్టార్ చేయడం ద్వారా ప్రారంభించండి లేదా మునుపటి చాట్‌ల నుండి ప్రాంప్ట్‌కు స్టార్ చేయండి"
+      }
+    },
+    "commands": {
+      "button": "పరికరాలు",
+      "changeTool": "పరికరాన్ని మార్చండి",
+      "availableTools": "లభ్యమైన పరికరాలు"
+    },
+    "fileUpload": {
+      "dragDrop": "ఫైల్స్‌ని ఇక్కడ డ్రాగ్ చేసి డ్రాప్ చేయండి",
+      "browse": "ఫైల్స్ బ్రౌజ్ చేయండి",
+      "sizeLimit": "పరిమితి:",
+      "errors": {
+        "failed": "అప్‌లోడ్ విఫలమైంది",
+        "cancelled": "అప్‌లోడ్ రద్దు చేయబడింది"
+      },
+      "actions": {
+        "cancelUpload": "రద్దు చేయండి",
+        "removeAttachment": "అనుబంధాన్ని తొలగించండి"
+      }
+    },
+    "messages": {
+      "status": {
+        "using": "ఉపయోగిస్తోంది",
+        "used": "ఉపయోగించబడింది"
+      },
+      "actions": {
+        "copy": {
+          "button": "క్లిప్‌బోర్డ్‌కి కాపీ చేయండి",
+          "success": "కాపీ చేయబడింది!"
+        }
+      },
+      "feedback": {
+        "positive": "సహాయకరం",
+        "negative": "సహాయకరం కాదు",
+        "edit": "అభిప్రాయాన్ని సవరించండి",
+        "dialog": {
+          "title": "వ్యాఖ్య జోడించండి",
+          "submit": "అభిప్రాయాన్ని సమర్పించండి",
+          "yourFeedback": "మీ అభిప్రాయం..."
+        },
+        "status": {
+          "updating": "నవీకరిస్తోంది",
+          "updated": "అభిప్రాయం నవీకరించబడింది"
         }
       }
     },
-    "molecules": {
-      "newChatButton": {
-        "newChat": "కొత్త చాట్"
+    "history": {
+      "title": "చివరి ఇన్‌పుట్‌లు",
+      "empty": "ఖాళీగా ఉంది...",
+      "show": "చరిత్రను చూపించు"
+    },
+    "settings": {
+      "title": "సెట్టింగ్‌ల ప్యానెల్",
+      "customize": "మీ చాట్ సెట్టింగ్‌లను ఇక్కడ అనుకూలీకరించండి"
+    },
+    "watermark": "LLMలు తప్పులు చేయవచ్చు. ముఖ్యమైన సమాచారాన్ని తనిఖీ చేయడాన్ని పరిగణించండి."
+  },
+  "threadHistory": {
+    "sidebar": {
+      "title": "గత చాట్‌లు",
+      "filters": {
+        "search": "వెతకండి",
+        "placeholder": "Search conversations..."
       },
-      "tasklist": {
-        "TaskList": {
-          "title": "🗒️ టాస్క్ లిస్ట్",
-          "loading": "లోడింగ్...",
-          "error": "ఒక దోషం సంభవించింది"
-        }
+      "timeframes": {
+        "today": "ఈరోజు",
+        "yesterday": "నిన్న",
+        "previous7days": "గత 7 రోజులు",
+        "previous30days": "గత 30 రోజులు"
       },
-      "attachments": {
-        "cancelUpload": "అప్ లోడ్ రద్దు చేయండి",
-        "removeAttachment": "అటాచ్ మెంట్ తొలగించు"
+      "empty": "థ్రెడ్‌లు కనుగొనబడలేదు",
+      "actions": {
+        "close": "సైడ్‌బార్ మూసివేయండి",
+        "open": "సైడ్‌బార్ తెరవండి"
+      }
+    },
+    "thread": {
+      "untitled": "పేరు లేని సంభాషణ",
+      "menu": {
+        "rename": "పేరు మార్చండి",
+        "share": "షేర్ చేయండి",
+        "delete": "తొలగించండి"
       },
-      "newChatDialog": {
-        "createNewChat": "కొత్త చాట్ సృష్టించాలా?",
-        "clearChat": "ఇది ప్రస్తుత సందేశాలను క్లియర్ చేస్తుంది మరియు కొత్త చాట్ను ప్రారంభిస్తుంది.",
-        "cancel": "రద్దు",
-        "confirm": "ధ్రువపరచు"
-      },
-      "settingsModal": {
-        "settings": "సెట్టింగ్ లు",
-        "expandMessages": "సందేశాలను విస్తరించండి",
-        "hideChainOfThought": "ఆలోచనా గొలుసును దాచండి",
-        "darkMode": "డార్క్ మోడ్"
-      },
-      "detailsButton": {
-        "using": "ఉపయోగించడం",
-        "running": "రన్నింగ్",
-        "took_one": "{{count}} అడుగు వేసింది",
-        "took_other": "{{count}} అడుగులు వేసింది"
-      },
-      "auth": {
-        "authLogin": {
-          "title": "యాప్ యాక్సెస్ చేసుకోవడానికి లాగిన్ అవ్వండి.",
-          "form": {
-            "email": "ఇమెయిల్ చిరునామా",
-            "password": "పాస్ వర్డ్",
-            "noAccount": "మీకు అకౌంట్ లేదా?",
-            "alreadyHaveAccount": "ఇప్పటికే ఖాతా ఉందా?",
-            "signup": "సైన్ అప్",
-            "signin": "సైన్ ఇన్",
-            "or": "లేదా",
-            "continue": "కొనసాగు",
-            "forgotPassword": "పాస్ వర్డ్ మర్చిపోయారా?",
-            "passwordMustContain": "మీ పాస్ వర్డ్ లో ఇవి ఉండాలి:",
-            "emailRequired": "ఇమెయిల్ అనేది అవసరమైన ఫీల్డ్",
-            "passwordRequired": "పాస్ వర్డ్ అనేది అవసరమైన ఫీల్డ్"
+      "actions": {
+        "share": {
+          "title": "చాట్ లింక్‌ను షేర్ చేయండి",
+          "button": "షేర్ చేయండి",
+          "status": {
+            "copied": "లింక్ కాపీ చేయబడింది",
+            "created": "షేర్ లింక్ సృష్టించబడింది!",
+            "unshared": "ఈ థ్రెడ్‌కు షేరింగ్ ఆపివేయబడింది"
           },
           "error": {
-            "default": "సైన్ ఇన్ చేయడం సాధ్యం కాదు.",
-            "signin": "వేరొక ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి.",
-            "oauthsignin": "వేరొక ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి.",
-            "redirect_uri_mismatch": "రీడైరెక్ట్ URI ఓయూత్ యాప్ కాన్ఫిగరేషన్ కు సరిపోలడం లేదు.",
-            "oauthcallbackerror": "వేరొక ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి.",
-            "oauthcreateaccount": "వేరొక ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి.",
-            "emailcreateaccount": "వేరొక ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి.",
-            "callback": "వేరొక ఖాతాతో సైన్ ఇన్ చేయడానికి ప్రయత్నించండి.",
-            "oauthaccountnotlinked": "మీ గుర్తింపును ధృవీకరించడానికి, మీరు మొదట ఉపయోగించిన అదే ఖాతాతో సైన్ ఇన్ చేయండి.",
-            "emailsignin": "ఇ-మెయిల్ పంపడం సాధ్యం కాదు.",
-            "emailverify": "దయచేసి మీ ఇమెయిల్ ని ధృవీకరించండి, కొత్త ఇమెయిల్ పంపబడింది.",
-            "credentialssignin": "సైన్ ఇన్ విఫలమైంది. మీరు అందించిన వివరాలు సరిగ్గా ఉన్నాయో లేదో చెక్ చేసుకోండి.",
-            "sessionrequired": "ఈ పేజీని యాక్సెస్ చేయడం కొరకు దయచేసి సైన్ ఇన్ చేయండి."
+            "create": "షేర్ లింక్ సృష్టించడం విఫలమైంది",
+            "unshare": "థ్రెడ్ షేరింగ్ నిలిపివేయడం విఫలమైంది"
           }
         },
-        "authVerifyEmail": {
-          "almostThere": "మీరు దాదాపు అక్కడే ఉన్నారు! మేము దీనికి ఒక ఇమెయిల్ పంపాము ",
-          "verifyEmailLink": "మీ సైన్ అప్ పూర్తి చేయడానికి దయచేసి ఆ ఇమెయిల్ లోని లింక్ పై క్లిక్ చేయండి.",
-          "didNotReceive": "ఇమెయిల్ ని కనుగొనలేకపోయారా?",
-          "resendEmail": "ఇమెయిల్ ని తిరిగి పంపండి",
-          "goBack": "వెనక్కి వెళ్ళు",
-          "emailSent": "ఇమెయిల్ విజయవంతంగా పంపబడింది.",
-          "verifyEmail": "మీ ఇమెయిల్ చిరునామాను ధృవీకరించండి"
+        "delete": {
+          "title": "తొలగింపును నిర్ధారించండి",
+          "description": "ఇది థ్రెడ్‌తో పాటు దాని సందేశాలను మరియు అంశాలను తొలగిస్తుంది. ఈ చర్యను రద్దు చేయలేరు",
+          "success": "చాట్ తొలగించబడింది",
+          "inProgress": "చాట్‌ని తొలగిస్తోంది"
         },
-        "providerButton": {
-          "continue": "{{provider}} తో కొనసాగించండి",
-          "signup": "{{provider}} తో సైన్ అప్ చేయండి"
-        },
-        "authResetPassword": {
-          "newPasswordRequired": "కొత్త పాస్ వర్డ్ అనేది అవసరమైన ఫీల్డ్",
-          "passwordsMustMatch": "పాస్ వర్డ్ లు తప్పనిసరిగా సరిపోలాలి",
-          "confirmPasswordRequired": "పాస్ వర్డ్ అనేది అవసరమైన ఫీల్డ్ అని ధృవీకరించండి",
-          "newPassword": "కొత్త పాస్ వర్డ్",
-          "confirmPassword": "పాస్ వర్డ్ ను ధృవీకరించండి",
-          "resetPassword": "రీసెట్ పాస్ వర్డ్"
-        },
-        "authForgotPassword": {
-          "email": "ఇమెయిల్ చిరునామా",
-          "emailRequired": "ఇమెయిల్ అనేది అవసరమైన ఫీల్డ్",
-          "emailSent": "మీ పాస్ వర్డ్ రీసెట్ చేయడానికి సూచనల కొరకు దయచేసి {{email}} ఇమెయిల్ చిరునామాను తనిఖీ చేయండి.",
-          "enterEmail": "మీ ఇమెయిల్ చిరునామాను నమోదు చేయండి మరియు మీ పాస్ వర్డ్ ను రీసెట్ చేయడానికి మేము మీకు సూచనలు పంపుతాము.",
-          "resendEmail": "ఇమెయిల్ ని తిరిగి పంపండి",
-          "continue": "కొనసాగు",
-          "goBack": "వెనక్కి వెళ్ళు"
-        }
-      }
-    },
-    "organisms": {
-      "chat": {
-        "history": {
-          "index": {
-            "showHistory": "చరిత్రను చూపించు",
-            "lastInputs": "చివరి ఇన్ పుట్ లు",
-            "noInputs": "అంత ఖాళీగా...",
-            "loading": "లోడింగ్..."
-          }
-        },
-        "inputBox": {
-          "input": {
-            "placeholder": "మీ సందేశాన్ని ఇక్కడ టైప్ చేయండి..."
-          },
-          "speechButton": {
-            "start": "రికార్డింగ్ ప్రారంభించండి",
-            "stop": "రికార్డింగ్ ఆపండి"
-          },
-          "SubmitButton": {
-            "sendMessage": "సందేశం పంపు",
-            "stopTask": "స్టాప్ టాస్క్"
-          },
-          "UploadButton": {
-            "attachFiles": "ఫైళ్లను జోడించు"
-          },
-          "waterMark": {
-            "text": "దీనితో నిర్మించబడింది"
-          }
-        },
-        "Messages": {
-          "index": {
-            "running": "రన్నింగ్",
-            "executedSuccessfully": "విజయవంతంగా అమలు చేయబడింది",
-            "failed": "విఫలమైంది",
-            "feedbackUpdated": "ఫీడ్ బ్యాక్ అప్ డేట్ చేయబడింది",
-            "updating": "అప్ డేట్ చేయడం"
-          }
-        },
-        "dropScreen": {
-          "dropYourFilesHere": "మీ ఫైళ్లను ఇక్కడ డ్రాప్ చేయండి"
-        },
-        "index": {
-          "failedToUpload": "అప్ లోడ్ చేయడం విఫలమైంది",
-          "cancelledUploadOf": "రద్దు చేసిన అప్ లోడ్",
-          "couldNotReachServer": "సర్వర్ కు చేరుకోవడం సాధ్యం కాలేదు",
-          "continuingChat": "మునుపటి చాట్ ను కొనసాగించడం"
-        },
-        "settings": {
-          "settingsPanel": "సెట్టింగ్స్ ప్యానెల్",
-          "reset": "రీసెట్",
-          "cancel": "రద్దు",
-          "confirm": "ధ్రువపరచు"
-        }
-      },
-      "threadHistory": {
-        "sidebar": {
-          "filters": {
-            "FeedbackSelect": {
-              "feedbackAll": "ఫీడ్ బ్యాక్: అన్నీ",
-              "feedbackPositive": "ఫీడ్ బ్యాక్: పాజిటివ్",
-              "feedbackNegative": "ఫీడ్ బ్యాక్: నెగెటివ్"
-            },
-            "SearchBar": {
-              "search": "వెతుకు"
+        "rename": {
+          "title": "థ్రెడ్ పేరు మార్చండి",
+          "description": "ఈ థ్రెడ్ కోసం కొత్త పేరును నమోదు చేయండి",
+          "form": {
+            "name": {
+              "label": "పేరు",
+              "placeholder": "కొత్త పేరును నమోదు చేయండి"
             }
           },
-          "DeleteThreadButton": {
-            "confirmMessage": "ఇది థ్రెడ్తో పాటు దాని సందేశాలు మరియు ఎలిమెంట్లను తొలగిస్తుంది.",
-            "cancel": "రద్దు",
-            "confirm": "ధ్రువపరచు",
-            "deletingChat": "చాట్ ను డిలీట్ చేయడం",
-            "chatDeleted": "చాట్ డిలీట్ చేయబడింది"
-          },
-          "index": {
-            "pastChats": "గత చాట్ లు"
-          },
-          "ThreadList": {
-            "empty": "ఖాళీ...",
-            "today": "ఈ రోజు",
-            "yesterday": "నిన్న",
-            "previous7days": "మునుపటి 7 రోజులు",
-            "previous30days": "మునుపటి 30 రోజులు"
-          },
-          "TriggerButton": {
-            "closeSidebar": "క్లోజ్ సైడ్ బార్",
-            "openSidebar": "ఓపెన్ సైడ్ బార్"
-          }
-        },
-        "Thread": {
-          "backToChat": "చాట్ చేయడానికి తిరిగి వెళ్లండి",
-          "chatCreatedOn": "ఈ చాట్ దీనిలో సృష్టించబడింది"
+          "success": "థ్రెడ్ పేరు మార్చబడింది!",
+          "inProgress": "థ్రెడ్ పేరు మారుస్తోంది"
         }
-      },
-      "header": {
-        "chat": "ముచ్చటించు",
-        "readme": "Readme"
       }
     }
   },
-  "hooks": {
-    "useLLMProviders": {
-      "failedToFetchProviders": "ప్రొవైడర్లను పొందడంలో విఫలమైంది:"
+  "navigation": {
+    "header": {
+      "chat": "చాట్",
+      "readme": "చదవండి",
+      "theme": {
+        "light": "Light Theme",
+        "dark": "Dark Theme",
+        "system": "Follow System"
+      }
+    },
+    "newChat": {
+      "button": "కొత్త చాట్",
+      "dialog": {
+        "title": "కొత్త చాట్ సృష్టించండి",
+        "description": "ఇది మీ ప్రస్తుత చాట్ చరిత్రను తుడిచివేస్తుంది. మీరు కొనసాగించాలనుకుంటున్నారా?",
+        "tooltip": "కొత్త చాట్"
+      }
+    },
+    "user": {
+      "menu": {
+        "settings": "సెట్టింగ్‌లు",
+        "settingsKey": "S",
+        "apiKeys": "API కీలు",
+        "logout": "లాగ్ అవుట్"
+      }
     }
   },
-  "pages": {
-    "Design": {},
-    "Env": {
-      "savedSuccessfully": "విజయవంతంగా సేవ్ చేయబడింది",
-      "requiredApiKeys": "అవసరమైన API కీలు",
-      "requiredApiKeysInfo": "ఈ యాప్ ఉపయోగించడానికి, ఈ క్రింది API కీలు అవసరం అవుతాయి. కీలు మీ పరికరం యొక్క స్థానిక స్టోరేజీలో నిల్వ చేయబడతాయి."
+  "apiKeys": {
+    "title": "అవసరమైన API కీలు",
+    "description": "ఈ యాప్‌ని ఉపయోగించడానికి, కింది API కీలు అవసరం. కీలు మీ పరికరం యొక్క స్థానిక నిల్వలో నిల్వ చేయబడతాయి.",
+    "success": {
+      "saved": "విజయవంతంగా సేవ్ చేయబడింది"
+    }
+  },
+  "alerts": {
+    "info": "Info",
+    "note": "Note",
+    "tip": "Tip",
+    "important": "Important",
+    "warning": "Warning",
+    "caution": "Caution",
+    "debug": "Debug",
+    "example": "Example",
+    "success": "Success",
+    "help": "Help",
+    "idea": "Idea",
+    "pending": "Pending",
+    "security": "Security",
+    "beta": "Beta",
+    "best-practice": "Best Practice"
+  },
+  "components": {
+    "MultiSelectInput": {
+      "placeholder": "ఎంచుకోండి..."
     },
-    "Page": {
-      "notPartOfProject": "మీరు ఈ ప్రాజెక్టులో భాగం కాదు."
-    },
-    "ResumeButton": {
-      "resumeChat": "రెజ్యూమ్ చాట్"
+    "DatePickerInput": {
+      "placeholder": {
+        "single": "తేదీని ఎంచుకోండి",
+        "range": "తేదీ పరిధిని ఎంచుకోండి"
+      }
     }
   }
 }

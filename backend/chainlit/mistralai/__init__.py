@@ -1,10 +1,11 @@
 import asyncio
 from typing import Union
 
+from literalai import ChatGeneration, CompletionGeneration
+
 from chainlit.context import get_context
 from chainlit.step import Step
-from literalai import ChatGeneration, CompletionGeneration
-from literalai.helper import timestamp_utc
+from chainlit.utils import timestamp_utc
 
 
 def instrument_mistralai():
@@ -20,7 +21,7 @@ def instrument_mistralai():
             parent_id = context.current_step.id
 
         step = Step(
-            name=generation.model if generation.model else generation.provider,
+            name=generation.model or generation.provider,
             type="llm",
             parent_id=parent_id,
         )
@@ -38,11 +39,11 @@ def instrument_mistralai():
         )
 
         if isinstance(generation, ChatGeneration):
-            step.input = generation.messages
+            step.input = generation.messages  # type: ignore
             step.output = generation.message_completion  # type: ignore
         else:
-            step.input = generation.prompt
-            step.output = generation.completion
+            step.input = generation.prompt  # type: ignore
+            step.output = generation.completion  # type: ignore
 
         asyncio.create_task(step.send())
 

@@ -1,24 +1,19 @@
+export type DisplayMode = 'floating' | 'sidebar';
+
 export interface IWidgetConfig {
   chainlitServer: string;
   showCot?: boolean;
   accessToken?: string;
   theme?: 'light' | 'dark';
-  fontFamily?: string;
   button?: {
     containerId?: string;
     imageUrl?: string;
-    style?: {
-      size?: string;
-      width?: string;
-      height?: string;
-      bgcolor?: string;
-      color?: string;
-      bgcolorHover?: string;
-      borderColor?: string;
-      borderWidth?: string;
-      borderStyle?: string;
-      borderRadius?: string;
-      boxShadow?: string;
-    };
+    className?: string;
   };
+  customCssUrl?: string;
+  additionalQueryParamsForAPI?: Record<string, string>;
+  expanded?: boolean;
+  language?: string;
+  opened?: boolean;
+  displayMode?: DisplayMode;
 }

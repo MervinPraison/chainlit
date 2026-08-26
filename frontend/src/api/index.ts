@@ -1,9 +1,11 @@
+import getRouterBasename from '@/lib/router';
 import { toast } from 'sonner';
-import getRouterBasename from 'utils/router';
 
 import { ChainlitAPI, ClientError } from '@chainlit/react-client';
 
-const devServer = 'http://localhost:8000' + getRouterBasename();
+const devServer =
+  (import.meta.env.VITE_API_URL || 'http://localhost:8000') +
+  getRouterBasename();
 const url = import.meta.env.DEV
   ? devServer
   : window.origin + getRouterBasename();
@@ -22,9 +24,23 @@ const onError = (error: ClientError) => {
   toast.error(error.toString());
 };
 
-export const apiClient = new ChainlitAPI(
+class ExtendedChainlitAPI extends ChainlitAPI {
+  async shareThread(
+    threadId: string,
+    isShared: boolean
+  ): Promise<{ success: boolean }> {
+    const res = await this.put(`/project/thread/share`, {
+      threadId,
+      isShared
+    });
+    return res.json();
+  }
+}
+
+export const apiClient = new ExtendedChainlitAPI(
   httpEndpoint,
   'webapp',
+  {}, // Optional - additionalQueryParams property.
   on401,
   onError
 );

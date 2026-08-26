@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Union
+from typing import TYPE_CHECKING, Dict, List, Optional
 
 from chainlit.types import (
     Feedback,
@@ -106,16 +106,19 @@ class BaseDataLayer(ABC):
     async def build_debug_url(self) -> str:
         pass
 
-
-class BaseStorageClient(ABC):
-    """Base class for non-text data persistence like Azure Data Lake, S3, Google Storage, etc."""
+    @abstractmethod
+    async def close(self) -> None:
+        pass
 
     @abstractmethod
-    async def upload_file(
-        self,
-        object_key: str,
-        data: Union[bytes, str],
-        mime: str = "application/octet-stream",
-        overwrite: bool = True,
-    ) -> Dict[str, Any]:
+    async def get_favorite_steps(self, user_id: str) -> List["StepDict"]:
         pass
+
+    async def set_step_favorite(
+        self, step_dict: "StepDict", favorite: bool
+    ) -> "StepDict":
+        metadata = step_dict.get("metadata") or {}
+        metadata["favorite"] = favorite
+        step_dict["metadata"] = metadata
+        await self.update_step(step_dict)
+        return step_dict
